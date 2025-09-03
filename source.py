@@ -43,6 +43,9 @@ if not code.ok:
 m0b_optimizer = types.ModuleType("m0b_optimizer")
 exec(code.text, m0b_optimizer.__dict__)
 
+# create an optimiser
+optimiser = m0b_optimizer.MyOptimizer()
+
 data_url = "https://raw.githubusercontent.com/MicrosoftDocs/mslearn-introduction-to-machine-learning/main/Data/seattleWeather_1948-2017.csv"
 
 # import the weather data
