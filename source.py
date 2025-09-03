@@ -3,6 +3,9 @@
 import pandas as pd
 import requests
 import types
+import matplotlib
+matplotlib.use("PDF")
+import matplotlib.pyplot as plt
 
 py_url = "https://raw.githubusercontent.com/MicrosoftDocs/mslearn-introduction-to-machine-learning/main/m0b_optimizer.py"
 code = requests.get(py_url)
@@ -25,4 +28,14 @@ data = pd.read_csv(data_url, parse_dates=["date"])
 data = data[[d.month == 1 for d in data.date]].copy()
 
 # test:
-print(data.head(5))
+#print(data.head(5))
+
+# test plot:
+plt.scatter(data["date"], data["min_temperature"])
+
+# labels and legend
+plt.xlabel("date")
+plt.ylabel("min_temperature")
+plt.title("January Temperatures (°F)")
+
+plt.savefig("plots/scatter_plot.pdf")
