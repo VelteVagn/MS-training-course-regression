@@ -18,6 +18,16 @@ class RegModel:
         """Predict the temperature based on the date"""
         return self.slope * date + self.intercept
 
+def cost_function(actual, estimated):
+    """Computes the cost and difference between predicted and actual values"""
+    # compute the difference
+    difference = actual - estimated
+
+    # compute the cost, i.e., difference squared
+    cost = sum(difference ** 2)
+
+    return difference, cost
+
 # Create a model to be trained
 model = RegModel()
 
@@ -54,6 +64,7 @@ data["normalised_temperature"] = (data["min_temperature"] - np.mean(data["min_te
 
 # test plot:
 plt.scatter(data["years_since_1982"], data["normalised_temperature"], marker=".")
+plt.plot(data["years_since_1982"], model.predict(data["normalised_temperature"]), c="r")
 
 # labels and legend
 plt.xlabel("years_since_1982")
