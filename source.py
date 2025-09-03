@@ -8,6 +8,19 @@ matplotlib.use("PDF")
 import matplotlib.pyplot as plt
 import numpy as np
 
+class RegModel:
+    def __init__(self):
+        """ Initiates an untrained regression model."""
+        self.slope = 0
+        self.intercept = 0
+
+    def predict(self, date):
+        """Predict the temperature based on the date"""
+        return self.slope * date + self.intercept
+
+# Create a model to be trained
+model = RegModel()
+
 py_url = "https://raw.githubusercontent.com/MicrosoftDocs/mslearn-introduction-to-machine-learning/main/m0b_optimizer.py"
 code = requests.get(py_url)
 
