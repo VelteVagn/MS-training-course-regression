@@ -6,6 +6,7 @@ import types
 import matplotlib
 matplotlib.use("PDF")
 import matplotlib.pyplot as plt
+import numpy as np
 
 py_url = "https://raw.githubusercontent.com/MicrosoftDocs/mslearn-introduction-to-machine-learning/main/m0b_optimizer.py"
 code = requests.get(py_url)
@@ -27,15 +28,23 @@ data = pd.read_csv(data_url, parse_dates=["date"])
 # filter out all months except January
 data = data[[d.month == 1 for d in data.date]].copy()
 
+# normalise the data
+# number of years since 1982
+data["years_since_1982"] = [(d.year + d.timetuple().tm_yday / 365.25) - 1982 for d in data.date]
+
+# normalise temperatures
+data["normalised_temperature"] = (data["min_temperature"] - np.mean(data["min_temperature"])) / np.std(data["min_temperature"])
+
+
 # test:
 #print(data.head(5))
 
 # test plot:
-plt.scatter(data["date"], data["min_temperature"])
+plt.scatter(data["years_since_1982"], data["normalised_temperature"], marker=".")
 
 # labels and legend
-plt.xlabel("date")
-plt.ylabel("min_temperature")
-plt.title("January Temperatures (°F)")
+plt.xlabel("years_since_1982")
+plt.ylabel("normalised_temperature")
+plt.title("January Temperatures (Normalised)")
 
 plt.savefig("plots/scatter_plot.pdf")
