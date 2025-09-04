@@ -4,7 +4,7 @@ This is a regression model following a MS exercise from learn.microsoft.com (see
 ## Usage
 Install the requirements:
 ```
-pip install -r requirments.txt
+pip install -r requirements.txt
 ```
 Run the script:
 ```
