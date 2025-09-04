@@ -1,5 +1,5 @@
 # Simple regression model (Microsoft exercise)
-This is a regression model following a MS exercise from learn.microsoft.com (see [Source](Source)). Thus the original tutorial code is copyrighted by Micorsoft. My own contribution (refactoring, some comments and making it a python script as opposed to Jupyter Notebook) are licensed under the MIT License.
+This is a regression model following a MS exercise from learn.microsoft.com (see Source). Thus the original tutorial code is copyrighted by Micorsoft. My own contribution (refactoring, some comments and making it a python script as opposed to Jupyter Notebook) are licensed under the MIT License.
 
 ## Usage
 Install the requirements:
