@@ -1,2 +1,4 @@
 *.swp
 .DS_Store
+myenv
+plots/scatter_plot.pdf
